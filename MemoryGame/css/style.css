@@ -31,12 +31,14 @@ button:focus {
 .mainContainer{
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #53866e;
     width: 100vw;
     height: 100vh;
 }
 
 .contentContainer{
+    max-width: 500px;
     width: 100%;
     height:calc(100% - var(--navigationContainer--height));
     
@@ -62,6 +64,7 @@ button:focus {
 }
 
 
+
 /*Navigation Container CSS*/
 
 .navigationContainer{
@@ -84,29 +87,28 @@ button:focus {
 }*/
 
 .navigationContainer-back-button {
+    width: 15px;
+    font-size: 20px;
     font-weight: bold;
     color: white;
     border-color: #d7c0a4;
     border-style: outset;
     margin: 20px;
-    padding: 8px;
+    padding: 8px 6px;
     cursor: pointer;
     user-select: none;
 }
 
 .navigationContainer-title {
     width: 60px;
-    /* align-self: flex-start; */
     font-size: 20px;
     font-weight: bold;
     color: white;
-    /* padding-right: 20px; */
-    /* border: blanchedalmond; */
     border-color: #d7c0a4;
     border-style: outset;
-    /* padding-right: 0px; */
     margin: 20px;
     padding: 8px 28px;
 }
 
 .hidden {display: none;}
+

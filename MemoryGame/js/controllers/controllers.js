@@ -7,4 +7,8 @@ export class Controller {
         this.modal=null;
 
     }
+
+    delete(){
+        this.view.delete();
+    }
 }

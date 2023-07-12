@@ -10,14 +10,24 @@ import{MENU_STATE, PLAY_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCO
 
 export class GameManager {
     constructor(){
+        this.controller=null;
         this.navigationContainer = document.getElementById('navigationContainer');
         this.backBtn = document.getElementById('navigationContainer-back-button');
         this.title = document.getElementById('navigationContainer-title');
         this.contentContainer = document.getElementById('contentContainer');
-        this.goto(MENU_STATE);
+        this.backBtn.onclick= this.goto.bind(this, MENU_STATE)
+
+        this.homeController = new MenuController(this, this.contentContainer);
+
+        this.presenting(MENU_STATE);
+
     }
 
-    goto(state){
+    presenting(state){
+        if(this.controller!== null) {
+            this.controller.delete();
+            this.controller=null;
+        }
         this.backBtn.classList.remove('hidden');
         switch (state) {
             case MENU_STATE:
@@ -57,5 +67,9 @@ export class GameManager {
                 break;
         }
     }
+    goto(state) {
+        if(this.controller!== null) {
+            this.controller.hide(this.presenting.bind(this, state));
+       }else{this.presenting(state);}
+    }
 }
-
