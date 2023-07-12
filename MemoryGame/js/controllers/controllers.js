@@ -1,3 +1,4 @@
+alert("controllers")
 export class Controller {
     constructor(gameManager){
         this.gameManager = gameManager;

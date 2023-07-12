@@ -1,7 +1,8 @@
+alert("views")
 export class View{
-    constructor(controllers) {
-        this.controllers=controllers;
-        this.parent=this.parent;
+    constructor(controller, parent) {
+        this.controller=controller;
+        this.parent= parent;
         this.container = document.createElement('div');
         this.parent.appendChild(this.container);
     }

@@ -1,4 +1,5 @@
-import { MenuController } from "./controllers/menu/menuController";
+alert("gameManager")
+import { MenuController } from "./controllers/menu/menuController.js";
 
 export class GameManager {
     constructor(){
@@ -7,3 +8,4 @@ export class GameManager {
 this.controller = new MenuController(this, contentContainer );
     }
 }
+

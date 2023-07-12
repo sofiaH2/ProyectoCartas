@@ -1,5 +1,6 @@
+alert("services")
 export class Service{
-    constructor(controllers) {
-        this.controllers=controllers;
+    constructor(controller) {
+        this.controllers=controller;
     }
 }
