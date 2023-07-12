@@ -31,7 +31,7 @@ button:focus {
 .mainContainer{
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color);
+    background-color: #53866e;
     width: 100vw;
     height: 100vh;
 }
@@ -54,10 +54,11 @@ button:focus {
     margin-top: 10px;
 }
 
+
 /*Navigation Container CSS*/
 
 .navigationContainer{
-    background-color:var(--primary-color);
+    background-color: #cba97c;
     width: 100%;
     height: var(--navigationContainer--height);
     display: flex;
@@ -76,16 +77,25 @@ button:focus {
 }*/
 
 .navigationContainer-back-button {
-    /*width: 20px;*/
-    justify-self: flex-start;
-    font-size: 20px;
     font-weight: bold;
     color: white;
+    border-color: #d7c0a4;
+    border-style: outset;
+    margin: 20px;
+    padding: 8px;
 }
 
 .navigationContainer-title {
     width: 60px;
-    /*align-self: flex-start;*/
+    /* align-self: flex-start; */
     font-size: 20px;
     font-weight: bold;
+    color: white;
+    /* padding-right: 20px; */
+    /* border: blanchedalmond; */
+    border-color: #d7c0a4;
+    border-style: outset;
+    /* padding-right: 0px; */
+    margin: 20px;
+    padding: 8px;
 }

@@ -1,4 +1,4 @@
-import { createElement } from "../../libs/html.js";
+import { div, p } from "../../libs/html.js";
 import { View } from "../view.js";
 
 
@@ -15,37 +15,37 @@ export class MenuView extends View{
         
         var loginBtn = div({
         innerHTML : 'Login',
-        className:'game-button',
+        className:'game-button loginView',
         }, this.container);
 
         
 
         var playBtn = div({
         innerHTML : 'Play',
-        className:'game-button',
+        className:'game-button playView',
         }, this.container);
 
 
         var creditsBtn = div({
         innerHTML: 'Credits',
-        className:'game-button',
+        className:'game-button creditsView',
         }, this.container);
 
 
         var dificultyBtn = div({
         innerHTML:'Dificulty',
-        className:'game-button',
+        className:'game-button difucultyView',
         }, this.container);
 
 
         var scoresBtn = div({
         innerHTML: 'Scores',
-        className:'game-button',
+        className:'game-button scoresView',
         }, this.container);
 
         var themesBtn = div({
         innerHTML : 'Themes',
-        className:'game-button',
+        className:'game-button themesView',
         }, this.container);
 
 

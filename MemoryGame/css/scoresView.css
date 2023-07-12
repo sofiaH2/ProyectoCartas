@@ -1,17 +1,15 @@
-.difucultyView{
-
+.scoresView{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
-
-    background-color: #9d8f11;
+    
+    background-color: #2f732d;
     /* border-color: #fff; */
     border-color: white;
     border-style: solid;
     color: white;
-    
 
-    
 }
+
