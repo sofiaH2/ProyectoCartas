@@ -3,4 +3,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #106555;
+    /* border-color: #fff; */
+    border-color: white;
+    border-style: solid;
+    color: white;
 }

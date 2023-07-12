@@ -1,5 +1,5 @@
 import {Controller} from "../controllers.js";
-import { ScoresView } from "../play/playView.js";
+import { ScoresView } from "../scores/scoresView.js";
 
 export class ScoresController extends Controller {
     constructor(gameManager, parent) {
