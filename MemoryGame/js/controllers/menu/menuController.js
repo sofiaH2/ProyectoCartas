@@ -1,4 +1,3 @@
-alert("menuController")
 
 import { Controller } from "../controllers.js";
 import { MenuView } from "./menuViews.js";

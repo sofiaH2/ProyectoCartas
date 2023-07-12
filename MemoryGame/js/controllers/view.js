@@ -1,9 +1,9 @@
-alert("views")
+import{div} from "../libs/html.js";
+
 export class View{
     constructor(controller, parent) {
         this.controller=controller;
         this.parent= parent;
-        this.container = document.createElement('div');
-        this.parent.appendChild(this.container);
+        this.container = div({}, this.parent);
     }
 }

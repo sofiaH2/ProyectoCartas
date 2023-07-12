@@ -1,39 +1,53 @@
-alert("menuViews")
+import { createElement } from "../../libs/html.js";
 import { View } from "../view.js";
+
+
 export class MenuView extends View{
     constructor(controller, parent){
         super(controller, parent);
         this.container.className = 'menuView';
+
+        var text = p({
+        innerHTML : 'HOOLA',
+        className : 'menuView_text'
+
+        }, this.container); console.dir(text);
         
-        var loginBtn = document.createElement('div')
-        this.container.appendChild(loginBtn);
-        loginBtn.innerHTML = 'Login';
-        loginBtn.className='game-button';
+        var loginBtn = div({
+        innerHTML : 'Login',
+        className:'game-button',
+        }, this.container);
 
-        var playBtn = document.createElement('div')
-        this.container.appendChild(playBtn);
-        playBtn.innerHTML = 'Play';
-        playBtn.className='game-button';
+        
 
-        var creditsBtn = document.createElement('div')
-        this.container.appendChild(creditsBtn);
-        creditsBtn.innerHTML = 'Credits';
-        creditsBtn.className='game-button';
+        var playBtn = div({
+        innerHTML : 'Play',
+        className:'game-button',
+        }, this.container);
 
-        var dificultyBtn = document.createElement('div')
-        this.container.appendChild(dificultyBtn);
-        dificultyBtn.innerHTML = 'Dificulty';
-        dificultyBtn.className='game-button';
 
-        var scoresBtn = document.createElement('div')
-        this.container.appendChild(scoresBtn);
-        scoresBtn.innerHTML = 'Scores';
-        scoresBtn.className='game-button';
+        var creditsBtn = div({
+        innerHTML: 'Credits',
+        className:'game-button',
+        }, this.container);
 
-        var themesBtn = document.createElement('div')
-        this.container.appendChild(themesBtn);
-        themesBtn.innerHTML = 'Themes';
-        themesBtn.className='game-button';
+
+        var dificultyBtn = div({
+        innerHTML:'Dificulty',
+        className:'game-button',
+        }, this.container);
+
+
+        var scoresBtn = div({
+        innerHTML: 'Scores',
+        className:'game-button',
+        }, this.container);
+
+        var themesBtn = div({
+        innerHTML : 'Themes',
+        className:'game-button',
+        }, this.container);
+
 
 }
 }
