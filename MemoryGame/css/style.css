@@ -38,7 +38,7 @@ button:focus {
 }
 
 .contentContainer{
-    max-width: 500px;
+    /*max-width: 500px;*/
     width: 100%;
     height:calc(100% - var(--navigationContainer--height));
     
@@ -111,4 +111,4 @@ button:focus {
 }
 
 .hidden {display: none;}
-
+div.menuView:first-child{display: none;}
