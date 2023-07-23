@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "play": "gulp play",
-    "bundle": "gulp bundle"
+    "bundle": "gulp bundle",
+    "clean": "gulp clean"
   },
   "author": "sofia herrera herrera",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.29.3",
     "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
     "rollup": "^3.26.3"
   }
 }
