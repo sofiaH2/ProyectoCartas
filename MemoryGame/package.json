@@ -1,0 +1,16 @@
+{
+  "name": "memorygame",
+  "version": "1.0.0",
+  "description": "memory game front end",
+  "main": "index.js",
+  "scripts": {
+    "play": "gulp play",
+    "bundle": "gulp bundle"
+  },
+  "author": "sofia herrera herrera",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "rollup": "^3.26.3"
+  }
+}
