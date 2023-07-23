@@ -3,6 +3,7 @@ const rollup = require('rollup');
 const clean = require('gulp-clean');
 const browsersync = require('browser-sync');
 const server = browsersync.create();
+
 gulp.task('clean', () =>{
     return gulp.src('node_modules').pipe(clean());
 });
@@ -13,10 +14,10 @@ exports.bundle = ()=>{
 };
 
 exports.play = ()=>{
-    console.log('GULP= Running play function');
+    console.log('Running game...');
     server.init({
-        server:{
-            baseDir:','
+        server: {
+            baseDir:'.'
         }
     });
 };
