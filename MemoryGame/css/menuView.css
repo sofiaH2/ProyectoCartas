@@ -1,12 +1,12 @@
-.menuView{
+.menuView-elementsContainer{
     width: 100%;
     height: 100%;
-    
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow: scroll;
 
     
 }
@@ -15,4 +15,32 @@
     font-size: 30px;
     font-weight: bold;
     color: white;
+}
+
+.menuView-text{
+    font-size: 30px;
+    font-weight: bold;
+    color:brown
+}
+
+.menuView-button-play{
+    height: 80px;
+    font-size: 50px;
+    background-color: #b80606;
+    margin-top: 18px;
+}
+
+.menuView-button-play:hover{
+    background-color: var(--secondary-color-dark);
+}
+
+.menuView-button-login{
+    margin-top: 10px;
+}
+
+.menuView-button{
+    height: 80px;
+}
+.menuView-logo{
+    width: 20px;
 }

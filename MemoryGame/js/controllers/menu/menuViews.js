@@ -1,44 +1,66 @@
 import { CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE, } from "../../libs/constants.js";
-import { div} from "../../libs/html.js";
+import { div, img, p} from "../../libs/html.js";
 import { View } from "../view.js";
-
 
 export class MenuView extends View{
     constructor(controller, parent){
         super(controller, parent);
-        this.container.className = 'menuView';
+        this.container.id = 'menuView';
+        this.elementsContainer.className = 'menuView-elementsContainer';
         
-        var loginBtn = div({
-        innerHTML : 'Login',
-        className:'game-button loginView', onclick:this.onButtonClick.bind(this, LOGIN_STATE)}, this.container);
+        img({
+            src: './src/imagen/logoP.png', className: 'menuView-logo'
+        }, this.elementsContainer);
+        
+        p({
+            innerHTML:'Can you beat this?', className: 'game-text'
+        }, this.elementsContainer);
 
-        
+        div({
+            innerHTML:'Score Data', className: 'menuView-scores-widget'
+        }, this.elementsContainer);
+
+        p({
+            innerHTML:'Are you ready?', className: 'game-text menuView-game-text'
+        }, this.elementsContainer);
 
         var playBtn = div({
-        innerHTML : 'Play',
-        className:'game-button playView',onclick:this.onButtonClick.bind(this, PLAY_STATE)}, this.container);
+            innerHTML : 'Play',
+            className:'game-button playView menuView-button-play',onclick:this.onButtonClick.bind(this, PLAY_STATE)
+        }, this.elementsContainer);
 
+        p({innerHTML:'Let´s check other things!!', className: 'game-text menuView-game-text'
+        }, this.elementsContainer);
+        
+        var buttonsContainer = div({
+            className:'menuView-buttonContainer'
+        },this.elementsContainer);
 
         var creditsBtn = div({
         innerHTML: 'Credits',
-        className:'game-button creditsView',onclick:this.onButtonClick.bind(this, CREDITS_STATE)}, this.container);
-
+        className:'game-button creditsView',onclick:this.onButtonClick.bind(this, CREDITS_STATE)}, buttonsContainer);
 
         var dificultyBtn = div({
         innerHTML:'Dificulty',
-        className:'game-button difucultyView',onclick:this.onButtonClick.bind(this, DIFFICULTY_STATE)}, this.container);
-
+        className:'game-button difucultyView',onclick:this.onButtonClick.bind(this, DIFFICULTY_STATE)}, buttonsContainer);
 
         var scoresBtn = div({
         innerHTML: 'Scores',
-        className:'game-button scoresView',onclick:this.onButtonClick.bind(this, SCORES_STATE)}, this.container);
+        className:'game-button scoresView',onclick:this.onButtonClick.bind(this, SCORES_STATE)}, buttonsContainer);
 
         var themesBtn = div({
         innerHTML : 'Themes',
-        className:'game-button themesView', onclick: this.onButtonClick.bind(this, THEMES_STATE)}, this.container);
+        className:'game-button themesView', onclick: this.onButtonClick.bind(this, THEMES_STATE)}, buttonsContainer);
+
+        var loginBtn = div({
+            innerHTML : 'Login',
+            className:'game-button loginView', onclick:this.onButtonClick.bind(this, LOGIN_STATE)}, this.elementsContainer);
+
+        var emojiFace = document.getElementById('emoji-face');
+        console.log(emojiFace);
     }
+
     onButtonClick(state){
-       // this.controller.goto(state);
         var event = new CustomEvent('menu-button-click', {
             
         detail:{

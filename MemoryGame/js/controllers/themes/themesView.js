@@ -1,24 +1,39 @@
+import { THEMES_FACES, THEMES_FLAGS, THEMES_FOOD } from "../../libs/constants.js";
+import { div} from "../../libs/html.js";
 import { View } from "../view.js";
+
 
 export class ThemesView extends View{
     constructor(controller, parent){
         super(controller, parent);
-        this.container.className = 'themesView';
-        
-        var foodBtn = document.createElement('div')
-        this.container.appendChild(foodBtn);
-        foodBtn.innerHTML = 'Food';
-        foodBtn.className='game-button';
+        this.elementsContainer.className = 'themesView';
 
-        var facesBtn = document.createElement('div')
-        this.container.appendChild(facesBtn);
-        facesBtn.innerHTML = 'Faces';
-        facesBtn.className='game-button';
+    div({
+        innerHTML:'Faces', className: 'game-button', onclick: this.onButtonClick.bind
+        (this, THEMES_FACES) }, this.elementsContainer);
+    div({
+        innerHTML:'Food', className: 'game-button', onclick:this.onButtonClick.bind
+        (this, THEMES_FOOD)}, this.elementsContainer);
+    div({
+        innerHTML:'Flags', className: 'game-button', onclick:this.onButtonClick.bind
+        (this, THEMES_FLAGS)}, this.elementsContainer);
 
-        var flagsBtn = document.createElement('div')
-        this.container.appendChild(flagsBtn);
-        flagsBtn.innerHTML = 'Flags';
-        flagsBtn.className='game-button';
 
+    }
+
+    onButtonClick(themes){
+        var event = new CustomEvent('save-Themes', {
+                
+            detail:{
+                themes: themes,
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false,
+            });
+
+            this.container.dispatchEvent(event);
+        }
 }
-}
+
+

@@ -1,25 +1,33 @@
+import { DIFFICULTY_HIGH, DIFFICULTY_LOW, DIFFICULTY_MEDIUM, THEMES_FACES, THEMES_FLAGS, THEMES_FOOD } from "../../libs/constants.js";
 import { View } from "../view.js";
+import { div, img, p} from "../../libs/html.js";
 
 export class DificultyView extends View{
     constructor(controller, parent){
         super(controller, parent);
-        this.container.className = 'difucultyView';
+        this.elementsContainer.className = 'difucultyView';
 
-        var lowBtn = document.createElement('div')
-        this.container.appendChild(lowBtn);
-        lowBtn.innerHTML = 'Low';
-        lowBtn.className='game-button';
-
-        var mediumBtn = document.createElement('div')
-        this.container.appendChild(mediumBtn);
-        mediumBtn.innerHTML = 'Medium';
-        mediumBtn.className='game-button';
-
-        var highBtn = document.createElement('div')
-        this.container.appendChild(highBtn);
-        highBtn.innerHTML = 'High';
-        highBtn.className='game-button';
+div({
+    innerHTML:'Low', className: 'game-button', onclick:this.onButtonClick.bind(this, DIFFICULTY_LOW)}, this.elementsContainer);
+div({
+    innerHTML:'Medium', className: 'game-button', onclick:this.onButtonClick.bind(this, DIFFICULTY_MEDIUM)}, this.elementsContainer);
+div({
+    innerHTML:'High', className: 'game-button', onclick:this.onButtonClick.bind(this, DIFFICULTY_HIGH)}, this.elementsContainer);
 
 
 }
+
+onButtonClick(difficulty){
+    var event = new CustomEvent('save-Difficulty', {
+            
+        detail:{
+            difficulty: difficulty,
+        },
+        bubbles: true,
+        cancelable: true,
+        composed: false,
+        });
+
+        this.container.dispatchEvent(event);
+    }
 }
