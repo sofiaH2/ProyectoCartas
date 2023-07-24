@@ -35,10 +35,21 @@ export class MenuView extends View{
 
         var themesBtn = div({
         innerHTML : 'Themes',
-        className:'game-button themesView',onclick:this.onButtonClick.bind(this, THEMES_STATE)}, this.container);
+        className:'game-button themesView', onclick: this.onButtonClick.bind(this, THEMES_STATE)}, this.container);
     }
-    onButtonClick(state, event){
-        this.controller.goto(state);
+    onButtonClick(state){
+       // this.controller.goto(state);
+        var event = new CustomEvent('menu-button-click', {
+            
+        detail:{
+            state: state,
+        },
+        bubbles: true,
+        cancelable: true,
+        composed: false,
+        });
+
+        this.container.dispatchEvent(event);
     }
 
 }

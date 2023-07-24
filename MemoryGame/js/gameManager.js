@@ -18,23 +18,30 @@ export class GameManager {
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE)
 
         this.menuController = new MenuController(this, this.contentContainer);
-
         this.presenting(MENU_STATE);
 
-        this.backBtn.onclick = this.goto.bind(this, MENU_STATE)
+        console.dir(this.contentContainer);
 
+        this.contentContainer.addEventListener('menu-button-click', (event) => {
+            this.presenting(event.detail.state);
+        })
+
+        this.contentContainer.addEventListener('hide-complete', (event) => {
+            this.presenting(event.detail.state);
+        });
     }
 
     presenting(state) {
         if (this.controller !== null) {
             this.controller.delete();
+            this.controller=null;
         }
 
         this.backBtn.classList.remove('hidden');
         switch (state) {
             case MENU_STATE:
+                this.backBtn.classList.add('hidden');
                 this.title.innerHTML = 'Menu';
-                this.controller = new MenuController(this, this.contentContainer);
                 break;
 
             case PLAY_STATE:
@@ -71,7 +78,9 @@ export class GameManager {
     }
     goto(state) {
         if (this.controller !== null) {
-            this.controller.hide(this.presenting.bind(this, state));
+            this.controller.hide(state);
+        }else{
+            this.presenting(state);
         }
 
     }

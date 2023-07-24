@@ -3,7 +3,7 @@ import { View } from "../view.js";
 export class DificultyView extends View{
     constructor(controller, parent){
         super(controller, parent);
-        this.container.className = 'dificultyView';
+        this.container.className = 'difucultyView';
 
         var lowBtn = document.createElement('div')
         this.container.appendChild(lowBtn);

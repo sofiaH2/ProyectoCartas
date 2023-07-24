@@ -13,7 +13,8 @@ export class Controller {
     }
 
 
-    hide(callback){
-        this.view.hide(callback)}
+    hide(state){
+        this.view.hide(state);
+    }
 
 }

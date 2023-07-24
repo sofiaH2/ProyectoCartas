@@ -8,6 +8,27 @@ gulp.task('clean', () =>{
     return gulp.src('node_modules').pipe(clean());
 });
 
+function reloadServer(cd){
+    server.reload();
+    cd();
+}
+
+function runServer(){
+    server.init({
+        server:{ 
+            baseDir:'.'
+        }
+    });
+}
+
+function matchingFiles(cd){
+    gulp.watch('*.html',reloadServer);
+    gulp.watch('css/',{events:'all'},reloadServer);
+    gulp.watch('js/',{events:'all'},reloadServer);
+
+    
+}
+
 
 exports.bundle = ()=>{
     console.log('GULP= Running bundle function');
@@ -15,9 +36,6 @@ exports.bundle = ()=>{
 
 exports.play = ()=>{
     console.log('Running game...');
-    server.init({
-        server: {
-            baseDir:'.'
-        }
-    });
+    runServer();
+    matchingFiles();
 };
