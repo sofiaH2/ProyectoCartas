@@ -21,7 +21,7 @@ export class GameManager {
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE)
 
         this.menuController = new MenuController(this, this.contentContainer);
-        this.presenting(PLAY_STATE);
+        this.presenting(MENU_STATE);
 
         console.dir(this.contentContainer);
 
