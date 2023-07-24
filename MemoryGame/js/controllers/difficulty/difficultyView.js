@@ -6,6 +6,7 @@ export class DificultyView extends View{
     constructor(controller, parent){
         super(controller, parent);
         this.elementsContainer.className = 'difucultyView';
+        this.elementsContainer.parentElement.style.width = '100%';
 
 div({
     innerHTML:'Low', className: 'game-button', onclick:this.onButtonClick.bind(this, DIFFICULTY_LOW)}, this.elementsContainer);

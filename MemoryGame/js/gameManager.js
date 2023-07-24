@@ -42,7 +42,11 @@ export class GameManager {
             this.saveThemes()
         });
 
-        this.loadDifficulty();
+        this.contentContainer.addEventListener('username-entered', (event) => {
+            this.username = event.detail.username;
+            this.saveUsername(username);
+        })
+
         this.loadDifficulty();
     }
 

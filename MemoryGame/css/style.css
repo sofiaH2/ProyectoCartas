@@ -64,10 +64,10 @@ button:focus {
     border-style: solid;
 
 }
-
-
-
-
+.game-text {
+    margin: 3px;
+    font-size: 20px;
+}
 /*Navigation Container CSS*/
 
 .navigationContainer{

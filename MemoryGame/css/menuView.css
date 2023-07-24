@@ -7,6 +7,8 @@
     justify-content: center;
     flex-direction: column;
     overflow: scroll;
+    
+    color: white;
 
     
 }
@@ -15,6 +17,7 @@
     font-size: 30px;
     font-weight: bold;
     color: white;
+
 }
 
 .menuView-text{

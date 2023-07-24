@@ -7,7 +7,7 @@ export class ThemesView extends View{
     constructor(controller, parent){
         super(controller, parent);
         this.elementsContainer.className = 'themesView';
-
+        this.elementsContainer.parentElement.style.width = '100%';
     div({
         innerHTML:'Faces', className: 'game-button', onclick: this.onButtonClick.bind
         (this, THEMES_FACES) }, this.elementsContainer);

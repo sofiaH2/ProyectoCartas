@@ -5,6 +5,7 @@ export class PlayView extends View{
     constructor(controller, parent){
         super(controller, parent);
         this.container.id = 'playView';
+        this.elementsContainer.parentElement.style.width = '100%';
         this.elementsContainer.className = 'playView-elementsContainer';
         this.cardsContainer = div ({className:'playView-cardsContainer'}, this.elementsContainer);
 }
