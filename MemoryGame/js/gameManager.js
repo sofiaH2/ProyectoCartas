@@ -10,8 +10,9 @@ import { MENU_STATE, PLAY_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, S
 
 export class GameManager {
     constructor() {
-        this.difficulty=DIFFICULTY_MEDIUM
-        this.themes=THEMES_FOOD
+        this.difficulty=DIFFICULTY_MEDIUM;
+        this.themes=THEMES_FOOD;
+        this.username='';
 
         this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
@@ -42,7 +43,7 @@ export class GameManager {
             this.saveThemes()
         });
 
-        this.contentContainer.addEventListener('username-entered', (event) => {
+        window.addEventListener('username-entered', (event) => {
             this.username = event.detail.username;
             this.saveUsername();
             this.goto(MENU_STATE)
@@ -52,7 +53,6 @@ export class GameManager {
         this.loadThemes();
         this.loadUsername();
         
-        this.presenting(PLAY_STATE);
     }
 
     presenting(state) {
