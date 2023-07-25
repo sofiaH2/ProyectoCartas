@@ -1,8 +1,8 @@
 import { CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE, } from "../../libs/constants.js";
 import { div, img, p} from "../../libs/html.js";
-import { View } from "../view.js";
+import { controllerView } from "../controllerView.js";
 
-export class MenuView extends View{
+export class MenuView extends controllerView{
     constructor(controller, parent){
         super(controller, parent);
         this.container.id = 'menuView';
@@ -55,9 +55,6 @@ export class MenuView extends View{
         var loginBtn = div({
             innerHTML : 'Login',
             className:'game-button loginView', onclick:this.onButtonClick.bind(this, LOGIN_STATE)}, this.elementsContainer);
-
-        var emojiFace = document.getElementById('emoji-face');
-        console.log(emojiFace);
     }
 
     onButtonClick(state){

@@ -1,7 +1,7 @@
 import { input, div } from "../../libs/html.js";
-import { View } from "../view.js";
+import { controllerView } from "../controllerView.js";
 
-export class LoginView extends View{
+export class LoginView extends controllerView{
     constructor(controller, parent){
         super(controller, parent);
         this.elementsContainer.className = 'loginView';
@@ -9,7 +9,8 @@ export class LoginView extends View{
 
         this.usernameIn= input({placeholders: 'Username',className:
         'loginView-usernameIn'}, this.elementsContainer);
-        this.okBtn= div({innerHTML:'OK', className:'game-button'}, this.elementsContainer);
+        this.okBtn= div({innerHTML:'OK', className:'game-button', onclick:this.onOKBtn.bind(this)},
+         this.elementsContainer);
         }
 
         onOKBtn(){
@@ -22,7 +23,7 @@ export class LoginView extends View{
                     bubbles: true,
                     cancelable: true,
                     composed: false,
-                    })
+                    });
             
                     this.container.dispatchEvent(event);
                 
