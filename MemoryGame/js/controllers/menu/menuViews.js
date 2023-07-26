@@ -9,7 +9,7 @@ export class MenuView extends controllerView{
         this.elementsContainer.className = 'menuView-elementsContainer';
         
         img({
-            src: './src/imagen/logoP.png', className: 'menuView-logo'
+            src: './src/imagen/logoPP.png', className: 'menuView-logo'
         }, this.elementsContainer);
         
         p({
