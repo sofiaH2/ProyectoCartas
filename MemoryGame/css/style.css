@@ -55,7 +55,7 @@ button:focus {
 .game-button {
     height: 50px !important;
     width: 240px !important;
-    background-color: color(xyz-d65 0.1 0.14 0.06);
+    background-color: wheat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,6 +73,7 @@ button:focus {
 .game-button:hover {
     color: #000000;
 }
+
 .game-text {
     margin: 3px;
     font-size: 20px;
