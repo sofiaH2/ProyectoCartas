@@ -21,7 +21,7 @@ overflow: scroll;
     max-width: 800px;
 }
 .playView-hudContainer{
-    width: 60%;
+    width: 60%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
