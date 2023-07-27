@@ -4,7 +4,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     background-color: #3b7c3a;
     border-color: #fff;
@@ -14,3 +14,7 @@
 
 }
 
+.menuView-buttonContainer > .scoresView{
+    
+    overflow: inherit !important;
+}
