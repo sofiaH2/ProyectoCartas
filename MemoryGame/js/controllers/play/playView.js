@@ -1,47 +1,47 @@
 import { div, p } from "../../libs/html.js";
 import { CardView } from "../../views/cardView.js";
-import { controllerView } from "../controllerView.js";
+import { ControllerView } from "../controllerView.js";
 
-export class PlayView extends controllerView{
-    constructor(controller, parent){
+export class PlayView extends ControllerView {
+    constructor(controller, parent) {
         super(controller, parent);
         this.container.id = 'playView';
         this.elementsContainer.parentElement.style.width = '100%';
         this.elementsContainer.className = 'playView-elementsContainer';
-        this.hudContainer=div({className:'playView-hudContainer'}, this.elementsContainer);
-        this.cardsContainer = div ({className:'playView-cardsContainer'}, this.elementsContainer);
+        this.hudContainer = div({ className: 'playView-hudContainer' }, this.elementsContainer);
+        this.cardsContainer = div({ className: 'playView-cardsContainer' }, this.elementsContainer);
 
 
-        this.clicksText= p({
-            innerHTML:'Clicks: 0',className:'playView-text'
-        },this.hudContainer);
+        this.clicksText = p({
+            innerHTML: 'Clicks: 0', className: 'playView-text'
+        }, this.hudContainer);
 
-        this.timerText= p({
-            innerHTML:'Time: 0',className:'playView-text'
-        },this.hudContainer);
+        this.timerText = p({
+            innerHTML: 'Time: 0', className: 'playView-text'
+        }, this.hudContainer);
 
-        this.resetBtn= div({
-            innerHTML:'Reset',className:'game-button playView-resetBtn', onclick:this.onResetBtn.bind(this)
-        },this.hudContainer);
-}
+        this.resetBtn = div({
+            innerHTML: 'Reset', className: 'game-button playView-resetBtn', onclick: this.onResetBtn.bind(this)
+        }, this.hudContainer);
+    }
 
 
 
-        showCards(cards) {
-            this.cardsContainer.innerHTML='';
-            cards.forEach(card => {
-                let cardView = new CardView(this.cardsContainer, card);
-            });
+    showCards(cards) {
+        this.cardsContainer.innerHTML = '';
+        cards.forEach(card => {
+            let cardView = new CardView(this.cardsContainer, card);
+        });
 
-        }
+    }
 
-        onResetBtn(){
-            
-            this.controller.resetGame();
-        }
+    onResetBtn() {
 
-        updateHUD(clicks, time){
-            this.clicksText.innerHTML=`Clicks: ${clicks}`;
-            this.timerText.innerHTML=`Time: ${time}`;
-        }
+        this.controller.resetGame();
+    }
+
+    updateHUD(clicks, time) {
+        this.clicksText.innerHTML = `Clicks: ${clicks}`;
+        this.timerText.innerHTML = `Time: ${time}`;
+    }
 }

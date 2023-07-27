@@ -7,7 +7,7 @@
 --secondary-color-light:#ffb851;
 --background-color: #e4e4e4;
 --navigationContainer--height:60px;
---fade-color: rbg(0,0,0,1);
+--fade-color: rgba(0,0,0,1);
 }
 
 *{padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif;}
@@ -19,7 +19,7 @@ hr{
     margin-bottom: 10px;
 }
 
-button{
+button {
     min-width: 60px;
     border-style: none;
     padding: 10px 10px 10px 10px;
@@ -52,7 +52,7 @@ button:focus {
     display: flex;
 }
 
-.game-button{
+.game-button {
     height: 50px !important;
     width: 240px !important;
     background-color: color(xyz-d65 0.1 0.14 0.06);
@@ -68,6 +68,10 @@ button:focus {
     user-select: none;
     border-style: solid;
 
+}
+
+.game-button:hover {
+    color: #000000;
 }
 .game-text {
     margin: 3px;
