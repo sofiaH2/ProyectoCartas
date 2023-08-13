@@ -9,7 +9,23 @@ export class CreditsView extends ControllerView {
 
         var text = document.createElement('p')
         this.elementsContainer.appendChild(text);
-        text.innerHTML = 'Add credits here'
+        text.innerHTML = 'Echo por:  Sofia Herrera Herrera';
+        
+        var text = document.createElement('p')
+        this.elementsContainer.appendChild(text);
+        text.innerHTML = 'Tipo:Juego de Memoria';
+
+        var text = document.createElement('p')
+        this.elementsContainer.appendChild(text);
+        text.innerHTML = 'Clase:Programacion Web Orientada a Objetos';
+
+        var text = document.createElement('p')
+        this.elementsContainer.appendChild(text);
+        text.innerHTML = 'Universidad:Estudiante de Cenfotec';
+
+        var text = document.createElement('p')
+        this.elementsContainer.appendChild(text);
+        text.innerHTML = 'Agosto 2023';
 
 
     }
