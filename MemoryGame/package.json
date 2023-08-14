@@ -6,7 +6,8 @@
   "scripts": {
     "play": "gulp play",
     "bundle": "gulp bundle",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "deploy":"gulp deploy"
   },
   "author": "sofia herrera herrera",
   "license": "ISC",
