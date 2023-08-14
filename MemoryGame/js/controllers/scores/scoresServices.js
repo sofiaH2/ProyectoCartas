@@ -9,7 +9,7 @@ export class ScoresService extends Service{
     
     getScores(){
         var scores = [];
-        var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores`;
+        var url = `https://sofia-memory-game.vercel.app/scores`;
         var request = new XMLHttpRequest();
         request.open('get', url);
         request.onload=()=>{

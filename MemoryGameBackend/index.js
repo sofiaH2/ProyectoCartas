@@ -4,6 +4,7 @@ const app = express();
 const port = 3006;
 
 app.use(cors());
+const dbUrl='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/';
 
 const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈','🍒', '🍑',
 '🍍', '🥥', '🥝', '🍅', '🥑', '🍆', '🌶', '🥒', '🥦', '🌽', '🥕', '🥗', '🥔', '🍠',
@@ -57,7 +58,9 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
 
 
 app.get('/scores', (request, response) => {
-    console.log(request); // Línea repetida
+    //https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json
+
+    console.log(request); // Línea 
     console.log(request); // Línea repetida
     response.send('Lista de scores');
 });
