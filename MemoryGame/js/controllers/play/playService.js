@@ -12,7 +12,7 @@ export class PlayService extends Service {
     getCards(difficulty, themes){
         var cards = [];
         //var url = `http://localhost:3000/cards`;
-        var url = `http://localhost:3000/cards/${difficulty}/${themes}`;
+        var url = `http://localhost:3005/cards/${difficulty}/${themes}`;
         //var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/cards/${difficulty}/type/${themes}`;
         var request = new XMLHttpRequest();
         request.open('get', url);

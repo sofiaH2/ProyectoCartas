@@ -6,7 +6,7 @@ import { LoginController } from "./controllers/login/loginController.js";
 import { PlayController } from "./controllers/play/playController.js";
 import { ScoresController } from "./controllers/scores/scoresControllers.js";
 
-import { MENU_STATE, PLAY_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, DIFFICULTY_MEDIUM, THEMES_FACES, THEMES_FOOD } from "./libs/constants.js";
+import { MENU_STATE, PLAY_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, DIFFICULTY_MEDIUM, THEMES_ANIMALS, THEMES_ACTIVITIES, THEMES_FOOD } from "./libs/constants.js";
 
 export class GameManager {
     constructor() {

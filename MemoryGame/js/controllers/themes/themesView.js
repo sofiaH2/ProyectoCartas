@@ -1,4 +1,4 @@
-import { THEMES_FACES, THEMES_FLAGS, THEMES_FOOD } from "../../libs/constants.js";
+import { THEMES_ANIMALS, THEMES_ACTIVITIES, THEMES_FOOD } from "../../libs/constants.js";
 import { div } from "../../libs/html.js";
 import { ControllerView } from "../controllerView.js";
 
@@ -8,16 +8,16 @@ export class ThemesView extends ControllerView {
         this.elementsContainer.className = 'themesView';
         this.elementsContainer.parentElement.style.width = '100%';
         div({
-            innerHTML: 'Faces', className: 'game-button', onclick: this.onButtonClick.bind
-                (this, THEMES_FACES)
+            innerHTML: 'Animals', className: 'game-button', onclick: this.onButtonClick.bind
+                (this, THEMES_ANIMALS)
         }, this.elementsContainer);
         div({
             innerHTML: 'Food', className: 'game-button', onclick: this.onButtonClick.bind
                 (this, THEMES_FOOD)
         }, this.elementsContainer);
         div({
-            innerHTML: 'Flags', className: 'game-button', onclick: this.onButtonClick.bind
-                (this, THEMES_FLAGS)
+            innerHTML: 'Activities', className: 'game-button', onclick: this.onButtonClick.bind
+                (this, THEMES_ACTIVITIES)
         }, this.elementsContainer);
 
 

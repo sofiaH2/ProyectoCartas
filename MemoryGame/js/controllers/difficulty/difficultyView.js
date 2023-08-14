@@ -1,4 +1,4 @@
-import { DIFFICULTY_HIGH, DIFFICULTY_LOW, DIFFICULTY_MEDIUM, THEMES_FACES, THEMES_FLAGS, THEMES_FOOD } from "../../libs/constants.js";
+import { DIFFICULTY_HIGH, DIFFICULTY_LOW, DIFFICULTY_MEDIUM, THEMES_ANIMALS, THEMES_ACTIVITIES, THEMES_FOOD } from "../../libs/constants.js";
 import { ControllerView } from "../controllerView.js";
 import { div, img, p } from "../../libs/html.js";
 
