@@ -38,9 +38,9 @@ export class PlayService extends Service {
     }
 
     sendScore(score, clicks, time, username){
-        var url = `http://localhost:3000/scores`;
-        //var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores`;
-                    //https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json
+        var url = `https://sofia-memory-game.vercel.app/scord`;
+        //var url = `http://localhost:3000/scores`;
+        //var url = `https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json`;
         var request=new XMLHttpRequest();
         request.open('POST', url);
         request.send(JSON.stringify({score: score, clicks: clicks, time: time, username: username}));

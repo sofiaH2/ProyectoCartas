@@ -56,7 +56,7 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
     response.send(JSON.stringify(data));
 });
 
-app.get('/scores', (request, response)=>{
+app.get('/score', (request, response)=>{
     const url='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json';
     axios.get(url).then(function(result){
         console.log(result.data);
@@ -69,7 +69,7 @@ app.get('/scores', (request, response)=>{
     });
 });
 
-app.post('/scores', (request, response) => {
+app.post('/score', (request, response) => {
     const url='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json';
 
     console.log(request.body); // Línea 
