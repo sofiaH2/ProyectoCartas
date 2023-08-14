@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3005;
+const port = 3006;
 
 app.use(cors());
 
@@ -62,9 +62,9 @@ app.get('/scores', (request, response) => {
     response.send('Lista de scores');
 });
 
-app.listen(port, () => {
-    console.log(`La aplicación de ejemplo está escuchando en el puerto ${port}`);
-});
+//app.listen(port, () => {
+ //   console.log(`La aplicación de ejemplo está escuchando en el puerto ${port}`);
+//});
 
 
 function randomInteger(min, max){

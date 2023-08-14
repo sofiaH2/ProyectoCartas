@@ -2,9 +2,9 @@
   "name": "memorygamebackend",
   "version": "1.0.0",
   "description": "game backend",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "run":"node main.js"
+    "run":"node index.js"
   },
   "author": "sofia herrera herrera",
   "license": "ISC",
