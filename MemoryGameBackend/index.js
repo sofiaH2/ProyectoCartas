@@ -2,10 +2,11 @@ const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3006;
+const port = 3000;
 
 app.use(cors());
-const dbUrl='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/';
+
+const dataBaseURL = 'https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/';
 
 const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈','🍒', '🍑',
 '🍍', '🥥', '🥝', '🍅', '🥑', '🍆', '🌶', '🥒', '🥦', '🌽', '🥕', '🥗', '🥔', '🍠',
@@ -32,83 +33,92 @@ const activities = ['⚽','🏀','🏈','⚾','🎾','🏐','🏉','🎱','🏓'
 
 app.get('/cards/:difficulty/:theme', (request, response) => {
 
-        var data={cards:[]};
-        
-        if(request.params !== null){
-            if(request.params.difficulty !== null && request.params.theme !== null){
-                const difficulty=request.params.difficulty;
-                const theme=request.params.theme;
-                var cards = getCards(difficulty,theme);
-                var card1=[...cards];
-                var card2=[...cards];
-                cards.forEach(card =>{
-                    data.cards.push(card);
-                });
+    var data = { cards: [] };
 
-                cards.forEach(card =>{
-                    data.cards.push(card);
-                });
+    if (request.params !== null) {
+        if (request.params.difficulty !== null && request.params.theme !== null) {
+            const difficulty = request.params.difficulty;
+            const theme = request.params.theme;
+            var cards = getCards(difficulty, theme);
+            cards.forEach(card => {
+                data.cards.push(card);
+            });
 
-                shuffleArray(data.cards);
+            cards.forEach(card => {
+                data.cards.push(card);
+            });
+
+            shuffleArray(data.cards);
         }
-            
     }
     response.send(JSON.stringify(data));
 });
 
-app.get('/score', (request, response)=>{
-    const url='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json';
-    axios.get(url).then(function(result){
-        console.log(result.data);
+app.get('/scores', (request, response) => {
+    const url = `${dataBaseURL}/data/scores.json`;
+    axios.get(url).then(function (result) {
+        console.log(result.data)
         response.send(result.data);
-    }).catch(function(error){
+    }).catch(function (error) {
         console.log(error);
-        response.send('error getting scores');
-    }).finally(function(error){
-
+        response.send('Error getting scores!');
+    }).finally(function () {
+        // always executed
     });
 });
 
 app.post('/score', (request, response) => {
-    const url='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json';
-
-    console.log(request.body); // Línea 
-    const score = JSON.parse(request.body);
-
-    if(score!== null && 
-        score.clicks !== null && 
-        score.time !== null && 
-        score.score !== null  ){
-
-        axios.post(url, JSON.stringify(score)).then(function(result){
-            response.send('Score registrado exitosamente');
-        }).catch(function(error){
-            response.send('Error');
-        });
-    }else{
-        response.send('Score no almacenado');
-    }
-    
+    let body = [];
+    request.on('data', (chunk) => {
+        body.push(chunk);
+    }).on('end', () => {
+        const jsonData = Buffer.concat(body).toString();
+        if (jsonData !== undefined) {
+            const url = `${dataBaseURL}/data/scores.json`;
+            const score = JSON.parse(jsonData);
+            if (score !== undefined &&
+                score.clicks !== undefined &&
+                score.time !== undefined &&
+                score.score !== undefined) {
+                axios.post(url, score).then(function (result) {
+                    response.send('Score saved!');
+                }).catch(function (error) {
+                    response.send(error);
+                });
+            } else {
+                response.send('Score undefined or null!');
+            }
+        } else {
+            response.send('request.body undefined or null!');
+        }
+    });
 });
 
-//app.listen(port, () => {
- //   console.log(`La aplicación de ejemplo está escuchando en el puerto ${port}`);
-//});
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`);
+// });
 
-
-function randomInteger(min, max){
-    return Math.floor(Math.random() * (max - min + 1))+min;
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function getIconIndex(iconIndex, iconList){
 
-        let newIconIndex = randomInteger(0,(iconList.length-1));
+function getIconIndex(iconIndex, length, cards) {
 
-        if(iconIndex===newIconIndex){
-        return getIconIndex(iconIndex,iconList);
-        
+    let newIconIndex = randomInteger(0, (length - 1));
+
+    for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        if (card.id === newIconIndex) {
+            return getIconIndex(iconIndex, length, cards);
+        }
     }
+
+    if (iconIndex === newIconIndex) {
+        return getIconIndex(iconIndex, length, cards);
+    }
+
     return newIconIndex;
-}
+};
 
 function getCards(difficulty,theme){
     var cards = [];
@@ -129,23 +139,24 @@ function getCards(difficulty,theme){
             break;
     }
 
-    for (let i = 0; i < difficulty; i++) {
-        var iconIndex=getIconIndex(-1, iconList);
-        var card ={
+    for (let i = 0; i < dificulty; i++) {
+        var iconIndex = getIconIndex(-1, iconList.length, cards);
+        var card = {
             "isDiscovered": false,
             "icon": iconList[iconIndex],
             "id": iconIndex
         }
         cards.push(card);
     }
+
     return cards;
 };
 
-function shuffleArray(array){
-    for(let i = array.length -1; i > 0; i--) {
-        const j = Math.floor(Math.random()*(i+1));
-        [array[i],array[j]]=[array[j],array[i]];
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
 }
-module.exports=app;
 
+module.exports = app;
