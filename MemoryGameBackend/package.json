@@ -4,7 +4,8 @@
   "description": "game backend",
   "main": "index.js",
   "scripts": {
-    "run":"node index.js"
+    "run": "vercel dev",
+    "deploy": "vercel --prod"
   },
   "author": "sofia herrera herrera",
   "license": "ISC",

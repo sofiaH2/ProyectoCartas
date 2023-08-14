@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -55,14 +56,39 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
     response.send(JSON.stringify(data));
 });
 
+app.get('/scores', (request, response)=>{
+    const url='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json';
+    axios.get(url).then(function(result){
+        console.log(result.data);
+        response.send(result.data);
+    }).catch(function(error){
+        console.log(error);
+        response.send('error getting scores');
+    }).finally(function(error){
 
+    });
+});
 
-app.get('/scores', (request, response) => {
-    //https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json
+app.post('/scores', (request, response) => {
+    const url='https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json';
 
-    console.log(request); // Línea 
-    console.log(request); // Línea repetida
-    response.send('Lista de scores');
+    console.log(request.body); // Línea 
+    const score = JSON.parse(request.body);
+
+    if(score!== null && 
+        score.clicks !== null && 
+        score.time !== null && 
+        score.score !== null  ){
+
+        axios.post(url, JSON.stringify(score)).then(function(result){
+            response.send('Score registrado exitosamente');
+        }).catch(function(error){
+            response.send('Error');
+        });
+    }else{
+        response.send('Score no almacenado');
+    }
+    
 });
 
 //app.listen(port, () => {
