@@ -38,7 +38,7 @@ export class PlayService extends Service {
     }
 
     sendScore(score, clicks, time, username){
-        var url = `https://sofia-memory-game.vercel.app/scores`;
+       var url = `https://sofia-memory-game.vercel.app/score`;
         //var url = `http://localhost:3000/scores`;
         //var url = `https://cenfotecmemorygame-5504e-default-rtdb.firebaseio.com/data/scores.json`;
         var request=new XMLHttpRequest();

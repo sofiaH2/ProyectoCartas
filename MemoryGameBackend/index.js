@@ -94,9 +94,9 @@ app.post('/score', (request, response) => {
     });
 });
 
-// app.listen(port, () => {
-//     console.log(`Example app listening on port ${port}`);
-// });
+ //app.listen(port, () => {
+     //console.log(`Example app listening on port ${port}`);
+//});
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -139,7 +139,7 @@ function getCards(difficulty,theme){
             break;
     }
 
-    for (let i = 0; i < dificulty; i++) {
+    for (let i = 0; i < difficulty; i++) {
         var iconIndex = getIconIndex(-1, iconList.length, cards);
         var card = {
             "isDiscovered": false,

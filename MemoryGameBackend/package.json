@@ -4,6 +4,7 @@
   "description": "game backend",
   "main": "index.js",
   "scripts": {
+    "runlocal":"node index.js",
     "run":"vercel dev",
     "deploy":"vercel --prod"
   },
