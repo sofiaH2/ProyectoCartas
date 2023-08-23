@@ -63,7 +63,6 @@ app.get('/scores', (request, response) => {
         console.log(error);
         response.send('Error getting scores!');
     }).finally(function () {
-        // always executed
     });
 });
 
@@ -93,10 +92,6 @@ app.post('/score', (request, response) => {
         }
     });
 });
-
- //app.listen(port, () => {
-     //console.log(`Example app listening on port ${port}`);
-//});
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

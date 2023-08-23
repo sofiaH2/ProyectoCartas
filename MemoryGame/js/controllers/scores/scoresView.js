@@ -7,14 +7,10 @@ export class ScoresView extends ControllerView {
         super(controller, parent);
         this.elementsContainer.className = 'scoresView';
         this.elementsContainer.parentElement.style.width = '100%';
-
-
     }
     showScores(scores) {
         scores.forEach(score => {
             let scoreView = new ScoreView(this.elementsContainer, score)
-            //TODO SHOWSCORES
-
         });
     }
 }

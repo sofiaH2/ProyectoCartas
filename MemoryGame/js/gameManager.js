@@ -52,7 +52,6 @@ export class GameManager {
         this.loadDifficulty();
         this.loadThemes();
         this.loadUsername();
-        //this.presenting(SCORES_STATE);
     }
 
     presenting(state) {

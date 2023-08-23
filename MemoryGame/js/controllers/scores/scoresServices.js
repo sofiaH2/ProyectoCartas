@@ -10,7 +10,6 @@ export class ScoresService extends Service{
     getScores(){
         var scores = [];
         var url = `https://sofia-memory-game.vercel.app/scores`;
-        //var url = `http://localhost:3000/scores`;
         var request = new XMLHttpRequest();
         request.open('get', url);
         request.onload=()=>{
@@ -23,9 +22,6 @@ export class ScoresService extends Service{
                         let score = new Score(scoreData.clicks, scoreData.score, scoreData.time, scoreData.username);
                         scores.push(score);
 
-
-                        
-                    
                 }
                
             }else{

@@ -23,7 +23,6 @@ export class PlayController extends Controller {
     }
 
     showCards(cards) {
-        //TODO
         this.cards= cards;
         this.view.showCards(cards);
         this.timer = window.setInterval(this.gameTick.bind(this), 1000);
@@ -92,7 +91,6 @@ export class PlayController extends Controller {
                             this.killGameTimer();
                             let score = this.clicks + this.time;
                             this.service.sendScore(score, this.clicks, this.time, this.gameManager.username);
-                            //TODO SHOW GAME COMPLETE CONTROLLER?
                         }
                 }else {
                     this.hiddenTimer= window.setTimeout(()=>{

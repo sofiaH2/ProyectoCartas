@@ -35,7 +35,6 @@ button:focus {
 }
 
 .mainContainer{
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +44,6 @@ button:focus {
 }
 
 .contentContainer{
-    /*max-width: 500px;*/
     width: 100%;
     height:calc(100% - var(--navigationContainer--height));
     
@@ -78,8 +76,6 @@ button:focus {
     margin: 3px;
     font-size: 20px;
 }
-/*Navigation Container CSS*/
-
 .navigationContainer{
     background-color: #cba97c;
     width: 100%;
@@ -91,16 +87,7 @@ button:focus {
 
 }
 
-/*.navigationContainer-content{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-}*/
-
 .navigationContainer-back-button {
-    
     width: 15px;
     font-size: 20px;
     font-weight: bold;
@@ -127,7 +114,6 @@ button:focus {
 
 
 @media only screen and (max-width: 600px){
-    /* For desktop: */
     body{min-width: 320px;}
     .game-text {
         margin: 3px;

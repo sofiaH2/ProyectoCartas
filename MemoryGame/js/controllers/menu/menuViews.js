@@ -15,14 +15,6 @@ export class MenuView extends ControllerView {
         }, this.elementsContainer);
 
         p({
-            innerHTML: 'Can you beat this?', className: 'game-text'
-        }, this.elementsContainer);
-
-        div({
-            innerHTML: 'Score Data', className: 'menuView-scores-widget'
-        }, this.elementsContainer);
-
-        p({
             innerHTML: 'Are you ready?', className: 'game-text menuView-game-text'
         }, this.elementsContainer);
 

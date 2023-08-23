@@ -1,5 +1,4 @@
 .playView-elementsContainer{
-
     width: 100%;
     height: 100%;
     display: flex;
@@ -7,8 +6,7 @@
     justify-content: center;
     flex-direction: column;
     background-color: #ab5f5f;
-overflow: scroll;
-    /* border-color: #fff; */
+    overflow: scroll;
     color: white;
 }
 .playView-cardsContainer{
@@ -41,7 +39,6 @@ font-size: 25px;
 }
 
 @media only screen and (max-width: 600px){
-    /* For desktop: */
     .playView-resetBtn {
         width: 50%;
         color: white;
